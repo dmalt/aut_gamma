@@ -62,4 +62,4 @@ def create_main_workflow_power():
 
 if __name__ == '__main__':
     main_workflow = create_main_workflow_power()
-    main_workflow.run()
+    main_workflow.run(plugin='MultiProc', plugin_args={'n_procs' : 8})
