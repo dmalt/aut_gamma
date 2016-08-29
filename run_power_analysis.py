@@ -22,7 +22,7 @@ def create_infosource():
 def create_datasource():
     datasource = pe.Node(interface=nio.DataGrabber(infields=['subject_id', 'condition'], outfields=['epo_file']), name = 'datasource')
     datasource.inputs.base_directory = data_path
-    datasource.inputs.template = '%s/%s%s*%s'
+    datasource.inputs.template = '%s/%s%s%s'
     datasource.inputs.template_args = dict(
         epo_file = [['subject_id', 'subject_id', 'condition', '-epo.fif']]
         )
