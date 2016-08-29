@@ -7,7 +7,7 @@ import nipype.interfaces.io as nio
 from params import main_path, data_path 
 from params import subject_ids
 from params import conditions
-from params import subgroups
+# from params import subgroups
 from params import power_analysis_name
 
 def create_infosource():
