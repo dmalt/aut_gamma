@@ -4,7 +4,7 @@ from neuropype_ephy.interfaces.mne.power import Power
 import nipype.interfaces.io as nio
 
 
-from params import main_path, data_path 
+from params import main_path, data_path
 from params import subject_ids
 from params import conditions
 # from params import subgroups
@@ -13,7 +13,7 @@ from params import power_analysis_name
 def create_infosource():
 
     infosource = pe.Node(interface=IdentityInterface(fields=['subject_id', 'condition']), name="infosource")
-    
+
     infosource.iterables = [('subject_id', subject_ids), ('condition', conditions)]
 
     return infosource
@@ -33,12 +33,12 @@ def create_datasource():
 
 
 def create_main_workflow_power():
-    
+
     main_workflow = pe.Workflow(name=power_analysis_name)
     main_workflow.base_dir = main_path
-    
+
     print "main_path %s" % main_path
-    
+
     ## Info source
     infosource = create_infosource()
     datasource = create_datasource()
